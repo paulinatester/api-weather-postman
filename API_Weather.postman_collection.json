@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7495cf38-eadc-4fe8-bdc4-eeaa01c0fb96",
+		"_postman_id": "619ce9fc-f6ad-4bfb-b6ed-cb54ad2ed012",
 		"name": "API_Weather",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -251,10 +251,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -297,7 +297,10 @@
 			"name": "Time_Zone_Json",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -305,7 +308,10 @@
 			"name": "TZ_Cracow_Json",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -348,49 +354,9 @@
 			"name": "Sport_Json",
 			"request": {
 				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "Barcelona",
-			"request": {
-				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://api.weatherapi.com/v1/forecast.json?key=13b0384d7c694b13aaa151221221204&q=barcelona&days=1&aqi=no&alerts=no",
-					"protocol": "http",
-					"host": [
-						"api",
-						"weatherapi",
-						"com"
-					],
-					"path": [
-						"v1",
-						"forecast.json"
-					],
-					"query": [
-						{
-							"key": "key",
-							"value": "13b0384d7c694b13aaa151221221204"
-						},
-						{
-							"key": "q",
-							"value": "barcelona"
-						},
-						{
-							"key": "days",
-							"value": "1"
-						},
-						{
-							"key": "aqi",
-							"value": "no"
-						},
-						{
-							"key": "alerts",
-							"value": "no"
-						}
-					]
+					"raw": ""
 				}
 			},
 			"response": []

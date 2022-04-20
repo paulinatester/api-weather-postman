@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "7495cf38-eadc-4fe8-bdc4-eeaa01c0fb96",
+		"name": "API_Weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Current_Json_without_authorisation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherapi.com/v1/current.json?q=London&aqi=no",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"current.json"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London"
+						},
+						{
+							"key": "aqi",
+							"value": "no"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Current_Json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherapi.com/v1/current.json?key=1b6ef8c501ef4fbf824164743222603&q=London&aqi=no",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"current.json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "1b6ef8c501ef4fbf824164743222603"
+						},
+						{
+							"key": "q",
+							"value": "London"
+						},
+						{
+							"key": "aqi",
+							"value": "no"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoint_not_found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response should be inform about resource can not be found\", function () {",
+							"    pm.response.to.be.error;",
+							"    pm.response.to.have.jsonBody(\"error\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherapi.com/v1/not-exist.json?key=1b6ef8c501ef4fbf824164743222603&q=London&aqi=no",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"not-exist.json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "1b6ef8c501ef4fbf824164743222603"
+						},
+						{
+							"key": "q",
+							"value": "London"
+						},
+						{
+							"key": "aqi",
+							"value": "no"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forecast_Json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response should be okay to process\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(\"location\");",
+							"     pm.response.to.have.jsonBody(\"current\");",
+							"    pm.response.to.not.have.jsonBody(\"error\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherapi.com/v1/forecast.json?key=1b6ef8c501ef4fbf824164743222603&q=London&days=1&aqi=no&alerts=no",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"forecast.json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "1b6ef8c501ef4fbf824164743222603"
+						},
+						{
+							"key": "q",
+							"value": "London"
+						},
+						{
+							"key": "days",
+							"value": "1"
+						},
+						{
+							"key": "aqi",
+							"value": "no"
+						},
+						{
+							"key": "alerts",
+							"value": "no"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Forecast_Json",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.weatherapi.com/v1/forecast.json?key=1b6ef8c501ef4fbf824164743222603&q=London&days=1&aqi=no&alerts=no",
+							"protocol": "http",
+							"host": [
+								"api",
+								"weatherapi",
+								"com"
+							],
+							"path": [
+								"v1",
+								"forecast.json"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "1b6ef8c501ef4fbf824164743222603"
+								},
+								{
+									"key": "q",
+									"value": "London"
+								},
+								{
+									"key": "days",
+									"value": "1"
+								},
+								{
+									"key": "aqi",
+									"value": "no"
+								},
+								{
+									"key": "alerts",
+									"value": "no"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "History_Json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherapi.com/v1/history.json?key=1b6ef8c501ef4fbf824164743222603&q=London&dt=2022-03-01",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"history.json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "1b6ef8c501ef4fbf824164743222603"
+						},
+						{
+							"key": "q",
+							"value": "London"
+						},
+						{
+							"key": "dt",
+							"value": "2022-03-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Time_Zone_Json",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "TZ_Cracow_Json",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Astronomy_Json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherapi.com/v1/astronomy.json?key=1b6ef8c501ef4fbf824164743222603&q=San Francisco&dt=2022-03-26",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"astronomy.json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "1b6ef8c501ef4fbf824164743222603"
+						},
+						{
+							"key": "q",
+							"value": "San Francisco"
+						},
+						{
+							"key": "dt",
+							"value": "2022-03-26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sport_Json",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Barcelona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherapi.com/v1/forecast.json?key=13b0384d7c694b13aaa151221221204&q=barcelona&days=1&aqi=no&alerts=no",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"forecast.json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "13b0384d7c694b13aaa151221221204"
+						},
+						{
+							"key": "q",
+							"value": "barcelona"
+						},
+						{
+							"key": "days",
+							"value": "1"
+						},
+						{
+							"key": "aqi",
+							"value": "no"
+						},
+						{
+							"key": "alerts",
+							"value": "no"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
